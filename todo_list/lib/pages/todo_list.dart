@@ -19,7 +19,7 @@ class _TodoListPageState extends State<TodoListPage> {
       child: Scaffold(
         body: Center(
             child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+          padding: const EdgeInsets.all(16),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -71,8 +71,9 @@ class _TodoListPageState extends State<TodoListPage> {
               const SizedBox(height: 16),
               Row(
                 children: [
-                  const Expanded(
-                      child: Text('Você possui 0 tarefa(s) pendente(s).')),
+                  Expanded(
+                      child: Text(
+                          'Você possui ${tasks.length} tarefa(s) pendente(s).')),
                   const SizedBox(width: 8),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
