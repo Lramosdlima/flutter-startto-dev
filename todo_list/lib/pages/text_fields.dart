@@ -15,6 +15,7 @@ class TextFieldPage extends StatelessWidget {
           child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('Exemplos de TextFields',
