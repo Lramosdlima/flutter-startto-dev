@@ -24,6 +24,13 @@ class _TodoListPageState extends State<TodoListPage> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
+              Text('Minhas Tarefas',
+                  style: TextStyle(
+                    color: Theme.of(context).primaryColor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24,
+                  )),
+              const SizedBox(height: 32),
               Row(
                 children: [
                   Expanded(
