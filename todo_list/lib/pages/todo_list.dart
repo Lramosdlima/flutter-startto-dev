@@ -76,24 +76,26 @@ class _TodoListPageState extends State<TodoListPage> {
                 ),
               ),
               const SizedBox(height: 16),
-              Row(
-                children: [
-                  Expanded(
-                      child: Text(
-                          'Você possui ${tasks.length} tarefa(s) pendente(s).')),
-                  const SizedBox(width: 8),
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Theme.of(context).primaryColor,
-                        foregroundColor: Colors.white,
-                        padding: const EdgeInsets.all(14),
-                      ),
-                      onPressed: () {
-                        setState(() => tasks.clear());
-                      },
-                      child: const Text('Limpar tudo'))
-                ],
-              )
+              tasks.isEmpty
+                  ? const SizedBox()
+                  : Row(
+                      children: [
+                        Expanded(
+                            child: Text(
+                                'Você possui ${tasks.length} tarefa(s) pendente(s).')),
+                        const SizedBox(width: 8),
+                        ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Theme.of(context).primaryColor,
+                              foregroundColor: Colors.white,
+                              padding: const EdgeInsets.all(14),
+                            ),
+                            onPressed: () {
+                              setState(() => tasks.clear());
+                            },
+                            child: const Text('Limpar tudo'))
+                      ],
+                    )
             ],
           ),
         )),
