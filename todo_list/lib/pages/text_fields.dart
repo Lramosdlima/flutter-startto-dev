@@ -69,7 +69,29 @@ class TextFieldPage extends StatelessWidget {
                 hintStyle: TextStyle(color: Colors.grey),
               ),
               keyboardType: TextInputType.datetime,
-            )
+            ),
+            const SizedBox(height: 32),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Theme.of(context).primaryColor,
+                    foregroundColor: Colors.white,
+                  ),
+                  onPressed: () {},
+                  child: const Text('Salvar'),
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Theme.of(context).primaryColor,
+                    foregroundColor: Colors.white,
+                  ),
+                  onPressed: null,
+                  child: const Text('Botão Desabilitado'),
+                ),
+              ],
+            ),
           ],
         ),
       )),
