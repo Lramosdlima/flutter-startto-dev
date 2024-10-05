@@ -26,6 +26,7 @@ class _TodoListPageState extends State<TodoListPage> {
                 Expanded(
                   child: TextField(
                     controller: _addTaskController,
+                    onSubmitted: _addTask,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: "Adicione uma tarefa",
@@ -42,13 +43,7 @@ class _TodoListPageState extends State<TodoListPage> {
                     padding: const EdgeInsets.all(14),
                     shape: const CircleBorder(),
                   ),
-                  onPressed: () {
-                    if (_addTaskController.text.isNotEmpty) {
-                      String task = _addTaskController.text;
-                      setState(() => tasks.add(task));
-                      _addTaskController.clear();
-                    }
-                  },
+                  onPressed: () => _addTask(_addTaskController.text),
                   child: const Icon(
                     Icons.add,
                     size: 30,
@@ -57,19 +52,22 @@ class _TodoListPageState extends State<TodoListPage> {
               ],
             ),
             const SizedBox(height: 16),
-            ListView(
-              shrinkWrap:
-                  true, // essa propriedade faz com que o ListView seja redimensionado ao adicionar novos itens
-              children: [
-                for (String task in tasks)
-                  ListTile(
-                    title: Text(task),
-                    leading: const Icon(Icons.task),
-                    onTap: () => {
-                      print('Tarefa $task foi concluída!'),
-                    },
-                  ),
-              ],
+            Flexible(
+              // ocupa o máximo de altura disponível e permite o scroll
+              child: ListView(
+                shrinkWrap:
+                    true, // essa propriedade faz com que o ListView seja redimensionado ao adicionar novos itens
+                children: [
+                  for (String task in tasks)
+                    ListTile(
+                      title: Text(task),
+                      leading: const Icon(Icons.task),
+                      onTap: () => {
+                        print('Tarefa $task foi concluída!'),
+                      },
+                    ),
+                ],
+              ),
             ),
             const SizedBox(height: 16),
             Row(
@@ -93,5 +91,13 @@ class _TodoListPageState extends State<TodoListPage> {
         ),
       )),
     );
+  }
+
+  _addTask(value) {
+    if (value.isNotEmpty) {
+      String task = value;
+      setState(() => tasks.add(task));
+      _addTaskController.clear();
+    }
   }
 }
