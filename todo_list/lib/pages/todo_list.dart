@@ -41,6 +41,19 @@ class TodoListPage extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 16),
+            ListView(
+              shrinkWrap:
+                  true, // essa propriedade faz com que o ListView seja redimensionado ao adicionar novos itens
+              children: [
+                Container(color: Colors.grey, height: 50),
+                Container(color: Colors.red, height: 50),
+                Container(color: Colors.green, height: 50),
+                Container(color: Colors.blue, height: 50),
+                Container(color: Colors.yellow, height: 50),
+                Container(color: Colors.purple, height: 50),
+              ],
+            ),
+            const SizedBox(height: 16),
             Row(
               children: [
                 const Expanded(
