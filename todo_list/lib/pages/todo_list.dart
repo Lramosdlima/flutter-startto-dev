@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_list/models/task.dart';
 import 'package:todo_list/widgets/todo_list_item.dart';
 
 class TodoListPage extends StatefulWidget {
@@ -11,7 +12,7 @@ class TodoListPage extends StatefulWidget {
 class _TodoListPageState extends State<TodoListPage> {
   final TextEditingController _addTaskController = TextEditingController();
 
-  List<String> tasks = [];
+  List<Task> tasks = [];
 
   @override
   Widget build(BuildContext context) {
@@ -60,11 +61,7 @@ class _TodoListPageState extends State<TodoListPage> {
                   shrinkWrap:
                       true, // essa propriedade faz com que o ListView seja redimensionado ao adicionar novos itens
                   children: [
-                    for (String task in tasks)
-                      TodoListItem(
-                        title: task,
-                        subtitle: task,
-                      ),
+                    for (Task task in tasks) TodoListItem(task: task),
                   ],
                 ),
               ),
@@ -96,7 +93,9 @@ class _TodoListPageState extends State<TodoListPage> {
 
   _addTask(value) {
     if (value.isNotEmpty) {
-      String task = value;
+      String title = value;
+      Task task = Task(title: title, date: DateTime.now());
+
       setState(() => tasks.add(task));
       _addTaskController.clear();
     }

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:todo_list/models/task.dart';
 
 class TodoListItem extends StatelessWidget {
-  const TodoListItem({super.key, required this.title, required this.subtitle});
+  const TodoListItem({super.key, required this.task});
 
-  final String title;
-  final String subtitle;
+  final Task task;
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +18,10 @@ class TodoListItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(subtitle, style: Theme.of(context).textTheme.bodySmall),
+          Text(task.date.toString(),
+              style: Theme.of(context).textTheme.bodySmall),
           const SizedBox(height: 8),
-          Text(title, style: Theme.of(context).textTheme.titleMedium),
+          Text(task.title, style: Theme.of(context).textTheme.titleMedium),
         ],
       ),
     );
