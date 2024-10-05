@@ -4,9 +4,10 @@ import 'package:intl/intl.dart';
 import 'package:todo_list/models/task.dart';
 
 class TodoListItem extends StatelessWidget {
-  const TodoListItem({super.key, required this.task});
+  const TodoListItem({super.key, required this.task, required this.onDelete});
 
   final Task task;
+  final Function(Task) onDelete;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,9 @@ class TodoListItem extends StatelessWidget {
                 bottomRight: Radius.circular(8),
                 topRight: Radius.circular(8),
               ),
-              onPressed: (context) {},
+              onPressed: (context) {
+                onDelete(task);
+              },
               backgroundColor: Colors.red,
               foregroundColor: Colors.white,
               icon: Icons.delete,
