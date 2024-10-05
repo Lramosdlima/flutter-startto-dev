@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo_list/pages/todo_list_page.dart';
+import 'package:todo_list/pages/text_fields.dart';
 
 void main() {
   runApp(const MainApp());
@@ -10,6 +10,6 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: TodoListPage());
+    return const MaterialApp(home: TextFieldPage());
   }
 }
