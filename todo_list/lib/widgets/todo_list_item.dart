@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:intl/intl.dart';
 import 'package:todo_list/models/task.dart';
 
@@ -9,15 +10,40 @@ class TodoListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 2),
+      child: Slidable(
+        endActionPane: ActionPane(
+          motion: const ScrollMotion(),
+          extentRatio: 0.25,
+          children: [
+            SlidableAction(
+              borderRadius: const BorderRadius.only(
+                bottomRight: Radius.circular(8),
+                topRight: Radius.circular(8),
+              ),
+              onPressed: (context) {},
+              backgroundColor: Colors.red,
+              foregroundColor: Colors.white,
+              icon: Icons.delete,
+              label: 'Deletar',
+            ),
+          ],
+        ),
+        child: _content(context),
+      ),
+    );
+  }
+
+  Widget _content(context) {
     return Container(
       decoration: BoxDecoration(
         color: Colors.grey[200],
         borderRadius: const BorderRadius.all(Radius.circular(8)),
       ),
-      margin: const EdgeInsets.symmetric(vertical: 8),
       padding: const EdgeInsets.all(16),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(DateFormat('dd/MM/yyyy - HH:mm').format(task.date),
               style: Theme.of(context).textTheme.bodySmall),
