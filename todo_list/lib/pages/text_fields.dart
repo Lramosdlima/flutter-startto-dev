@@ -5,26 +5,31 @@ class TextFieldPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
           child: Padding(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Exemplos de TextFields', style: TextStyle(fontSize: 24)),
-            SizedBox(height: 32),
-            TextField(
+            Text('Exemplos de TextFields',
+                style: TextStyle(
+                  color: Theme.of(context).primaryColor,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24,
+                )),
+            const SizedBox(height: 32),
+            const TextField(
               decoration: InputDecoration(
-                border: OutlineInputBorder(),
+                border: const OutlineInputBorder(),
                 labelText: "Email",
                 hintText: "exemplo@email.com",
                 hintStyle: TextStyle(color: Colors.grey),
               ),
               keyboardType: TextInputType.emailAddress,
             ),
-            SizedBox(height: 16),
-            TextField(
+            const SizedBox(height: 16),
+            const TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: "Preço",
@@ -34,8 +39,8 @@ class TextFieldPage extends StatelessWidget {
               ),
               keyboardType: TextInputType.number,
             ),
-            SizedBox(height: 16),
-            TextField(
+            const SizedBox(height: 16),
+            const TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: "Peso",
@@ -45,8 +50,8 @@ class TextFieldPage extends StatelessWidget {
               ),
               keyboardType: TextInputType.number,
             ),
-            SizedBox(height: 16),
-            TextField(
+            const SizedBox(height: 16),
+            const TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: "Data",
