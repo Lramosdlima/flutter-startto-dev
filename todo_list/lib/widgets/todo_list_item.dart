@@ -13,6 +13,7 @@ class TodoListItem extends StatelessWidget {
         color: Colors.grey[200],
         borderRadius: const BorderRadius.all(Radius.circular(8)),
       ),
+      margin: const EdgeInsets.symmetric(vertical: 8),
       padding: const EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
