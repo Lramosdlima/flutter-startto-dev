@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
 class TextFieldPage extends StatelessWidget {
-  const TextFieldPage({super.key});
+  TextFieldPage({super.key});
+
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _priceController = TextEditingController();
+  final TextEditingController _weightController = TextEditingController();
+  final TextEditingController _dateController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +24,10 @@ class TextFieldPage extends StatelessWidget {
                   fontSize: 24,
                 )),
             const SizedBox(height: 32),
-            const TextField(
-              decoration: InputDecoration(
-                border: const OutlineInputBorder(),
+            TextField(
+              controller: _emailController,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
                 labelText: "Email",
                 hintText: "exemplo@email.com",
                 hintStyle: TextStyle(color: Colors.grey),
@@ -29,8 +35,9 @@ class TextFieldPage extends StatelessWidget {
               keyboardType: TextInputType.emailAddress,
             ),
             const SizedBox(height: 16),
-            const TextField(
-              decoration: InputDecoration(
+            TextField(
+              controller: _priceController,
+              decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: "Preço",
                 prefixText: "R\$ ",
@@ -40,8 +47,9 @@ class TextFieldPage extends StatelessWidget {
               keyboardType: TextInputType.number,
             ),
             const SizedBox(height: 16),
-            const TextField(
-              decoration: InputDecoration(
+            TextField(
+              controller: _weightController,
+              decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: "Peso",
                 suffixText: "kg",
@@ -51,8 +59,9 @@ class TextFieldPage extends StatelessWidget {
               keyboardType: TextInputType.number,
             ),
             const SizedBox(height: 16),
-            const TextField(
-              decoration: InputDecoration(
+            TextField(
+              controller: _dateController,
+              decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: "Data",
                 suffixIcon: Icon(Icons.calendar_today),
