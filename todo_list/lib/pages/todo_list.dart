@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_list/widgets/todo_list_item.dart';
 
 class TodoListPage extends StatefulWidget {
   const TodoListPage({super.key});
@@ -58,14 +59,7 @@ class _TodoListPageState extends State<TodoListPage> {
                 shrinkWrap:
                     true, // essa propriedade faz com que o ListView seja redimensionado ao adicionar novos itens
                 children: [
-                  for (String task in tasks)
-                    ListTile(
-                      title: Text(task),
-                      leading: const Icon(Icons.task),
-                      onTap: () => {
-                        print('Tarefa $task foi concluída!'),
-                      },
-                    ),
+                  for (String task in tasks) TodoListItem(),
                 ],
               ),
             ),
