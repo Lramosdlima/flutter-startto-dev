@@ -13,6 +13,8 @@ class _TodoListPageState extends State<TodoListPage> {
   final TextEditingController _addTaskController = TextEditingController();
 
   List<Task> tasks = [];
+  Task? deletedTask;
+  int? deletedTaskPos;
 
   @override
   Widget build(BuildContext context) {
@@ -100,7 +102,25 @@ class _TodoListPageState extends State<TodoListPage> {
   }
 
   void _removeTask(Task task) {
+    deletedTask = task;
+    deletedTaskPos = tasks.indexOf(task);
+
     setState(() => tasks.remove(task));
+
+    ScaffoldMessenger.of(context).clearSnackBars();
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Tarefa ${task.title} removida!'),
+        backgroundColor: Theme.of(context).primaryColor,
+        action: SnackBarAction(
+          label: 'Desfazer',
+          onPressed: () =>
+              setState(() => tasks.insert(deletedTaskPos!, deletedTask!)),
+        ),
+        duration: const Duration(seconds: 5),
+      ),
+    );
   }
 
   void _addTask(value) {
