@@ -34,6 +34,8 @@ class TextFieldPage extends StatelessWidget {
                 hintStyle: TextStyle(color: Colors.grey),
               ),
               keyboardType: TextInputType.emailAddress,
+              onChanged: onChanged,
+              onSubmitted: onSubmitted,
             ),
             const SizedBox(height: 16),
             TextField(
@@ -100,6 +102,7 @@ class TextFieldPage extends StatelessWidget {
   }
 
   void save() {
+    // Recebe os valores de cada campo.
     String textEmail = _emailController.text;
     String textPrice = _priceController.text;
     String textWeight = _weightController.text;
@@ -110,9 +113,22 @@ class TextFieldPage extends StatelessWidget {
     print(textWeight);
     print(textDate);
 
+    // Limpa os campos.
     _priceController.clear();
+    // Preenche o campo.
     _dateController.text = '01/01/2024';
 
     print('Save!');
+  }
+
+  void onChanged(String text) {
+    // Não precisa necessariamente de um controller.
+    // Ele é executado quando o texto mudar.
+    print('onChanged: $text');
+  }
+
+  void onSubmitted(String text) {
+    // Ele é executado quando o botão Salvar é apertado ou do próprio Enter do teclado!
+    print('onSubmitted: $text');
   }
 }
