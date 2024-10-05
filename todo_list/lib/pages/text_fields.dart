@@ -79,7 +79,7 @@ class TextFieldPage extends StatelessWidget {
                     backgroundColor: Theme.of(context).primaryColor,
                     foregroundColor: Colors.white,
                   ),
-                  onPressed: () {},
+                  onPressed: save,
                   child: const Text('Salvar'),
                 ),
                 ElevatedButton(
@@ -96,5 +96,22 @@ class TextFieldPage extends StatelessWidget {
         ),
       )),
     );
+  }
+
+  void save() {
+    String textEmail = _emailController.text;
+    String textPrice = _priceController.text;
+    String textWeight = _weightController.text;
+    String textDate = _dateController.text;
+
+    print(textEmail);
+    print(textPrice);
+    print(textWeight);
+    print(textDate);
+
+    _priceController.clear();
+    _dateController.text = '01/01/2024';
+
+    print('Save!');
   }
 }
