@@ -59,7 +59,11 @@ class _TodoListPageState extends State<TodoListPage> {
                 shrinkWrap:
                     true, // essa propriedade faz com que o ListView seja redimensionado ao adicionar novos itens
                 children: [
-                  for (String task in tasks) TodoListItem(),
+                  for (String task in tasks)
+                    TodoListItem(
+                      title: task,
+                      subtitle: task,
+                    ),
                 ],
               ),
             ),
