@@ -25,53 +25,60 @@ class TextFieldPage extends StatelessWidget {
                     fontSize: 24,
                   )),
               const SizedBox(height: 32),
-              TextField(
-                controller: _emailController,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: "Email",
-                  hintText: "exemplo@email.com",
-                  hintStyle: TextStyle(color: Colors.grey),
+              Flexible(
+                child: ListView(
+                  shrinkWrap: true,
+                  children: [
+                    TextField(
+                      controller: _emailController,
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: "Email",
+                        hintText: "exemplo@email.com",
+                        hintStyle: TextStyle(color: Colors.grey),
+                      ),
+                      keyboardType: TextInputType.emailAddress,
+                      onChanged: onChanged,
+                      onSubmitted: onSubmitted,
+                    ),
+                    const SizedBox(height: 16),
+                    TextField(
+                      controller: _priceController,
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: "Preço",
+                        prefixText: "R\$ ",
+                        hintText: "00.00",
+                        hintStyle: TextStyle(color: Colors.grey),
+                      ),
+                      keyboardType: TextInputType.number,
+                    ),
+                    const SizedBox(height: 16),
+                    TextField(
+                      controller: _weightController,
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: "Peso",
+                        suffixText: "kg",
+                        hintText: "00.00",
+                        hintStyle: TextStyle(color: Colors.grey),
+                      ),
+                      keyboardType: TextInputType.number,
+                    ),
+                    const SizedBox(height: 16),
+                    TextField(
+                      controller: _dateController,
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: "Data",
+                        suffixIcon: Icon(Icons.calendar_today),
+                        hintText: "00/00/0000",
+                        hintStyle: TextStyle(color: Colors.grey),
+                      ),
+                      keyboardType: TextInputType.datetime,
+                    ),
+                  ],
                 ),
-                keyboardType: TextInputType.emailAddress,
-                onChanged: onChanged,
-                onSubmitted: onSubmitted,
-              ),
-              const SizedBox(height: 16),
-              TextField(
-                controller: _priceController,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: "Preço",
-                  prefixText: "R\$ ",
-                  hintText: "00.00",
-                  hintStyle: TextStyle(color: Colors.grey),
-                ),
-                keyboardType: TextInputType.number,
-              ),
-              const SizedBox(height: 16),
-              TextField(
-                controller: _weightController,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: "Peso",
-                  suffixText: "kg",
-                  hintText: "00.00",
-                  hintStyle: TextStyle(color: Colors.grey),
-                ),
-                keyboardType: TextInputType.number,
-              ),
-              const SizedBox(height: 16),
-              TextField(
-                controller: _dateController,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: "Data",
-                  suffixIcon: Icon(Icons.calendar_today),
-                  hintText: "00/00/0000",
-                  hintStyle: TextStyle(color: Colors.grey),
-                ),
-                keyboardType: TextInputType.datetime,
               ),
               const SizedBox(height: 32),
               Row(
