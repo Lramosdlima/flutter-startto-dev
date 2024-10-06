@@ -4,10 +4,16 @@ import 'package:intl/intl.dart';
 import 'package:flutter_app/models/task.dart';
 
 class TodoListItem extends StatelessWidget {
-  const TodoListItem({super.key, required this.task, required this.onDelete});
+  TodoListItem({
+    super.key,
+    required this.task,
+    required this.onDelete,
+    required this.onComplete,
+  });
 
   final Task task;
   final Function(Task) onDelete;
+  final Function(Task) onComplete;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +22,6 @@ class TodoListItem extends StatelessWidget {
       child: Slidable(
         endActionPane: ActionPane(
           motion: const ScrollMotion(),
-          extentRatio: 0.25,
           children: [
             SlidableAction(
               borderRadius: const BorderRadius.all(Radius.circular(8)),
@@ -28,6 +33,16 @@ class TodoListItem extends StatelessWidget {
               icon: Icons.delete,
               label: 'Deletar',
             ),
+            SlidableAction(
+              borderRadius: const BorderRadius.all(Radius.circular(8)),
+              onPressed: (context) {
+                onComplete(task);
+              },
+              backgroundColor: task.isCompleted ? Colors.grey : Colors.green,
+              foregroundColor: Colors.white,
+              icon: task.isCompleted ? Icons.backspace : Icons.check,
+              label: task.isCompleted ? 'Voltar' : 'Feito',
+            ),
           ],
         ),
         child: _content(context),
@@ -37,9 +52,13 @@ class TodoListItem extends StatelessWidget {
 
   Widget _content(context) {
     return Container(
-      decoration: const BoxDecoration(
-        color: Color.fromARGB(100, 103, 80, 164),
-        borderRadius: BorderRadius.all(Radius.circular(8)),
+      decoration: BoxDecoration(
+        color: task.isCompleted
+            ? const Color.fromARGB(99, 80, 164, 118)
+            : const Color.fromARGB(100, 103, 80, 164),
+        borderRadius: const BorderRadius.all(Radius.circular(8)),
+        border: Border.all(
+            color: task.isCompleted ? Colors.green : Colors.transparent),
       ),
       padding: const EdgeInsets.all(16),
       child: Column(

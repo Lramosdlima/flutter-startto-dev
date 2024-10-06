@@ -94,7 +94,11 @@ class _TodoListPageState extends State<TodoListPage> {
                       true, // essa propriedade faz com que o ListView seja redimensionado ao adicionar novos itens
                   children: [
                     for (Task task in tasks)
-                      TodoListItem(task: task, onDelete: _removeTask),
+                      TodoListItem(
+                        task: task,
+                        onDelete: _removeTask,
+                        onComplete: _completeTask,
+                      ),
                   ],
                 ),
               ),
@@ -178,6 +182,12 @@ class _TodoListPageState extends State<TodoListPage> {
         duration: const Duration(seconds: 5),
       ),
     );
+  }
+
+  _completeTask(Task task) {
+    setState(() => task.isCompleted = !task.isCompleted);
+
+    taskRepository.saveTaskList(tasks);
   }
 
   void _addTask(value) {
