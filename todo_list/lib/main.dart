@@ -20,6 +20,7 @@ class MainApp extends StatelessWidget {
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
+        primaryColor: const Color.fromARGB(255, 103, 80, 164),
         extensions: const [
           SkeletonizerConfigData.dark(),
         ],
