@@ -59,6 +59,7 @@ class _CalculateIMCPageState extends State<CalculateIMCPage> {
                         controller: pesoController,
                         textAlign: TextAlign.center,
                         decoration: const InputDecoration(
+                          suffixText: 'kg',
                           border: OutlineInputBorder(),
                           labelText: "Peso (kg)",
                           hintText: "Exemplo: 70,0",
@@ -77,6 +78,7 @@ class _CalculateIMCPageState extends State<CalculateIMCPage> {
                         controller: alturaController,
                         textAlign: TextAlign.center,
                         decoration: const InputDecoration(
+                          suffixText: 'cm',
                           border: OutlineInputBorder(),
                           labelText: "Altura (cm)",
                           hintText: "Exemplo: 1,70",
