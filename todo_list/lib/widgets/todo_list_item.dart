@@ -19,10 +19,7 @@ class TodoListItem extends StatelessWidget {
           extentRatio: 0.25,
           children: [
             SlidableAction(
-              borderRadius: const BorderRadius.only(
-                bottomRight: Radius.circular(8),
-                topRight: Radius.circular(8),
-              ),
+              borderRadius: const BorderRadius.all(Radius.circular(8)),
               onPressed: (context) {
                 onDelete(task);
               },
