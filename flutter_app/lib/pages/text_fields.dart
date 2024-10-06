@@ -1,4 +1,6 @@
+import 'package:easy_mask/easy_mask.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_app/models/date_field.dart';
 import 'package:intl/intl.dart';
 
@@ -56,14 +58,23 @@ class _TextFieldPageState extends State<TextFieldPage> {
                     ),
                     const SizedBox(height: 16),
                     TextField(
+                      textAlign: TextAlign.right,
                       controller: _priceController,
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: "Preço",
                         prefixText: "R\$ ",
-                        hintText: "00.00",
+                        hintText: "10,50",
                         hintStyle: TextStyle(color: Colors.grey),
                       ),
+                      inputFormatters: [
+                        TextInputMask(
+                          mask: 'R\$! !9+,99',
+                          placeholder: '0',
+                          maxPlaceHolders: 3,
+                          reverse: true,
+                        )
+                      ],
                       keyboardType: TextInputType.number,
                     ),
                     const SizedBox(height: 16),
@@ -73,9 +84,15 @@ class _TextFieldPageState extends State<TextFieldPage> {
                         border: OutlineInputBorder(),
                         labelText: "Peso",
                         suffixText: "kg",
-                        hintText: "00.00",
+                        hintText: "70,5",
                         hintStyle: TextStyle(color: Colors.grey),
                       ),
+                      inputFormatters: [
+                        TextInputMask(
+                          mask: '99,9',
+                          reverse: false,
+                        )
+                      ],
                       keyboardType: TextInputType.number,
                     ),
                     const SizedBox(height: 16),
