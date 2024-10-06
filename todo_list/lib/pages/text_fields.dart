@@ -1,14 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:todo_list/models/date_field.dart';
 
-class TextFieldPage extends StatelessWidget {
-  TextFieldPage({super.key});
+class TextFieldPage extends StatefulWidget {
+  const TextFieldPage({super.key});
 
+  @override
+  State<TextFieldPage> createState() => _TextFieldPageState();
+}
+
+class _TextFieldPageState extends State<TextFieldPage> {
   final TextEditingController _emailController = TextEditingController();
+
   final TextEditingController _priceController = TextEditingController();
+
   final TextEditingController _weightController = TextEditingController();
+
   final TextEditingController _dateController = TextEditingController();
+
   final TextEditingController _nameController =
       TextEditingController(text: 'Léo do Chapéu');
+
+  DateTime? date;
 
   @override
   Widget build(BuildContext context) {
@@ -68,17 +80,11 @@ class TextFieldPage extends StatelessWidget {
                       keyboardType: TextInputType.number,
                     ),
                     const SizedBox(height: 16),
-                    TextField(
-                      controller: _dateController,
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: "Data",
-                        suffixIcon: Icon(Icons.calendar_today),
-                        hintText: "00/00/0000",
-                        hintStyle: TextStyle(color: Colors.grey),
-                      ),
-                      keyboardType: TextInputType.datetime,
-                    ),
+                    DateField(
+                        date: date,
+                        onPicked: (picked) {
+                          setState(() => date = picked);
+                        }),
                     const SizedBox(height: 16),
                     TextField(
                       enabled: false,
@@ -87,7 +93,6 @@ class TextFieldPage extends StatelessWidget {
                         border: OutlineInputBorder(),
                         labelText: "Nome",
                       ),
-                      keyboardType: TextInputType.datetime,
                     ),
                   ],
                 ),
