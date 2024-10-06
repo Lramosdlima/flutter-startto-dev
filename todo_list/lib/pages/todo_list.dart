@@ -95,8 +95,9 @@ class _TodoListPageState extends State<TodoListPage> {
                   : Row(
                       children: [
                         Expanded(
-                            child: Text(
-                                'Você possui ${tasks.length} tarefa(s) pendente(s).')),
+                            child: Text(tasks.length == 1
+                                ? 'Você possui 1 tarefa pendente.'
+                                : 'Você possui ${tasks.length} tarefas pendentes.')),
                         const SizedBox(width: 8),
                         ElevatedButton(
                             style: ElevatedButton.styleFrom(
