@@ -90,15 +90,40 @@ class _TodoListPageState extends State<TodoListPage> {
                               foregroundColor: Colors.white,
                               padding: const EdgeInsets.all(14),
                             ),
-                            onPressed: () {
-                              setState(() => tasks.clear());
-                            },
+                            onPressed: _showDeleteConfirmationDialog,
                             child: const Text('Limpar tudo'))
                       ],
                     )
             ],
           ),
         )),
+      ),
+    );
+  }
+
+  void _showDeleteConfirmationDialog() {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Limpar Tudo?'),
+        content: const Text('Tem certeza que deseja excluir todas as tarefas?'),
+        actions: [
+          TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text('Cancelar')),
+          TextButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
+                foregroundColor: Colors.white,
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+                setState(() => tasks.clear());
+              },
+              child: const Text('Limpar Tudo')),
+        ],
       ),
     );
   }
