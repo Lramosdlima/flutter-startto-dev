@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-import 'package:todo_list/pages/home.dart';
+import 'package:flutter_app/pages/home.dart';
 
 void main() {
   runApp(const MainApp());

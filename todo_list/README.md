@@ -1,3 +1,3 @@
-# todo_list
+# flutter_app
 
 A new Flutter project.

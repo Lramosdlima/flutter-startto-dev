@@ -5,18 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "todo_list",
+            "name": "flutter_app",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "todo_list (profile mode)",
+            "name": "flutter_app (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "todo_list (release mode)",
+            "name": "flutter_app (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"

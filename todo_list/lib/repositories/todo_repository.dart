@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:todo_list/models/task.dart';
+import 'package:flutter_app/models/task.dart';
 
 // Chave das tasks.
 const taskListKey = 'task_list';

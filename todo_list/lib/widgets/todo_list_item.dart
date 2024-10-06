@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:intl/intl.dart';
-import 'package:todo_list/models/task.dart';
+import 'package:flutter_app/models/task.dart';
 
 class TodoListItem extends StatelessWidget {
   const TodoListItem({super.key, required this.task, required this.onDelete});

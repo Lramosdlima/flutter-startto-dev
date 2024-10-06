@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:todo_list/models/date_field.dart';
-import 'package:todo_list/models/task.dart';
-import 'package:todo_list/repositories/todo_repository.dart';
-import 'package:todo_list/widgets/todo_list_item.dart';
+import 'package:flutter_app/models/date_field.dart';
+import 'package:flutter_app/models/task.dart';
+import 'package:flutter_app/repositories/todo_repository.dart';
+import 'package:flutter_app/widgets/todo_list_item.dart';
 
 class TodoListPage extends StatefulWidget {
   const TodoListPage({super.key});

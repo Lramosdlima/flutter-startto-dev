@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:todo_list/pages/skeleton.dart';
-import 'package:todo_list/pages/text_fields.dart';
-import 'package:todo_list/pages/todo_list.dart';
+import 'package:flutter_app/pages/skeleton.dart';
+import 'package:flutter_app/pages/text_fields.dart';
+import 'package:flutter_app/pages/todo_list.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
