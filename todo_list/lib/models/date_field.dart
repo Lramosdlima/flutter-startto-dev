@@ -23,11 +23,12 @@ class DateField extends StatelessWidget {
       },
       child: AbsorbPointer(
         child: TextFormField(
-          decoration: InputDecoration(
-            labelText:
-                date == null ? 'Data' : DateFormat('dd/MM/yyyy').format(date!),
-            border: const OutlineInputBorder(),
-            suffixIcon: const Icon(Icons.calendar_today),
+          controller: TextEditingController(
+              text: date != null ? DateFormat('dd/MM/yyyy').format(date!) : ''),
+          decoration: const InputDecoration(
+            labelText: 'Data',
+            border: OutlineInputBorder(),
+            suffixIcon: Icon(Icons.calendar_today),
           ),
           validator: (value) =>
               date == null ? 'Este campo é obrigatório' : null,
