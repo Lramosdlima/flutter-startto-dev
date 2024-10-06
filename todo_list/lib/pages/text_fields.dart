@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/models/date_field.dart';
+import 'package:intl/intl.dart';
 
 class TextFieldPage extends StatefulWidget {
   const TextFieldPage({super.key});
@@ -14,8 +15,6 @@ class _TextFieldPageState extends State<TextFieldPage> {
   final TextEditingController _priceController = TextEditingController();
 
   final TextEditingController _weightController = TextEditingController();
-
-  final TextEditingController _dateController = TextEditingController();
 
   final TextEditingController _nameController =
       TextEditingController(text: 'Léo do Chapéu');
@@ -106,8 +105,8 @@ class _TextFieldPageState extends State<TextFieldPage> {
                       backgroundColor: Theme.of(context).primaryColor,
                       foregroundColor: Colors.white,
                     ),
-                    onPressed: save,
-                    child: const Text('Salvar'),
+                    onPressed: tap,
+                    child: const Text('Verificar'),
                   ),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
@@ -126,12 +125,13 @@ class _TextFieldPageState extends State<TextFieldPage> {
     );
   }
 
-  void save() {
+  void tap() {
     // Recebe os valores de cada campo.
     String textEmail = _emailController.text;
     String textPrice = _priceController.text;
     String textWeight = _weightController.text;
-    String textDate = _dateController.text;
+    String textDate =
+        date != null ? DateFormat('dd/MM/yyyy').format(date!) : '';
 
     showDialog(
       context: context,
