@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:todo_list/pages/todo_list.dart';
+import 'package:skeletonizer/skeletonizer.dart';
+import 'package:todo_list/pages/home.dart';
 
 void main() {
   runApp(const MainApp());
@@ -10,9 +11,21 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      title: 'Aprendendo Flutter',
+      theme: ThemeData(
+        extensions: const [
+          SkeletonizerConfigData(),
+        ],
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        extensions: const [
+          SkeletonizerConfigData.dark(),
+        ],
+      ),
       debugShowCheckedModeBanner: false,
-      home: TodoListPage(),
+      home: const HomePage(),
     );
   }
 }
