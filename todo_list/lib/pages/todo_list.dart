@@ -131,7 +131,10 @@ class _TodoListPageState extends State<TodoListPage> {
               ),
               onPressed: () {
                 Navigator.pop(context);
-                setState(() => tasks.clear());
+                setState(() {
+                  tasks.clear();
+                  taskRepository.saveTaskList(tasks);
+                });
               },
               child: const Text('Limpar Tudo')),
         ],
@@ -144,6 +147,7 @@ class _TodoListPageState extends State<TodoListPage> {
     deletedTaskPos = tasks.indexOf(task);
 
     setState(() => tasks.remove(task));
+    taskRepository.saveTaskList(tasks);
 
     ScaffoldMessenger.of(context).clearSnackBars();
 
@@ -153,8 +157,10 @@ class _TodoListPageState extends State<TodoListPage> {
         backgroundColor: Theme.of(context).primaryColor,
         action: SnackBarAction(
           label: 'Desfazer',
-          onPressed: () =>
-              setState(() => tasks.insert(deletedTaskPos!, deletedTask!)),
+          onPressed: () => setState(() {
+            tasks.insert(deletedTaskPos!, deletedTask!);
+            taskRepository.saveTaskList(tasks);
+          }),
         ),
         duration: const Duration(seconds: 5),
       ),
