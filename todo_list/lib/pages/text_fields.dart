@@ -7,6 +7,8 @@ class TextFieldPage extends StatelessWidget {
   final TextEditingController _priceController = TextEditingController();
   final TextEditingController _weightController = TextEditingController();
   final TextEditingController _dateController = TextEditingController();
+  final TextEditingController _nameController =
+      TextEditingController(text: 'Léo do Chapéu');
 
   @override
   Widget build(BuildContext context) {
@@ -74,6 +76,16 @@ class TextFieldPage extends StatelessWidget {
                         suffixIcon: Icon(Icons.calendar_today),
                         hintText: "00/00/0000",
                         hintStyle: TextStyle(color: Colors.grey),
+                      ),
+                      keyboardType: TextInputType.datetime,
+                    ),
+                    const SizedBox(height: 16),
+                    TextField(
+                      enabled: false,
+                      controller: _nameController,
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: "Nome",
                       ),
                       keyboardType: TextInputType.datetime,
                     ),
