@@ -61,13 +61,23 @@ class TodoListItem extends StatelessWidget {
             color: task.isCompleted ? Colors.green : Colors.transparent),
       ),
       padding: const EdgeInsets.all(16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(DateFormat('dd/MM/yyyy').format(task.date),
-              style: Theme.of(context).textTheme.bodySmall),
-          const SizedBox(height: 8),
-          Text(task.title, style: Theme.of(context).textTheme.titleMedium),
+          task.isCompleted
+              ? const Icon(Icons.check, color: Colors.green)
+              : Container(),
+          const SizedBox(width: 16),
+          Column(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(DateFormat('dd/MM/yyyy').format(task.date),
+                  style: Theme.of(context).textTheme.bodySmall),
+              const SizedBox(height: 8),
+              Text(task.title, style: Theme.of(context).textTheme.titleMedium),
+            ],
+          ),
         ],
       ),
     );
