@@ -40,9 +40,9 @@ class TodoListItem extends StatelessWidget {
 
   Widget _content(context) {
     return Container(
-      decoration: BoxDecoration(
-        color: const Color.fromARGB(100, 103, 80, 164),
-        borderRadius: const BorderRadius.all(Radius.circular(8)),
+      decoration: const BoxDecoration(
+        color: Color.fromARGB(100, 103, 80, 164),
+        borderRadius: BorderRadius.all(Radius.circular(8)),
       ),
       padding: const EdgeInsets.all(16),
       child: Column(
