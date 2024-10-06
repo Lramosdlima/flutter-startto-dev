@@ -133,17 +133,28 @@ class _TextFieldPageState extends State<TextFieldPage> {
     String textWeight = _weightController.text;
     String textDate = _dateController.text;
 
-    print(textEmail);
-    print(textPrice);
-    print(textWeight);
-    print(textDate);
-
-    // Limpa os campos.
-    _priceController.clear();
-    // Preenche o campo.
-    _dateController.text = '01/01/2024';
-
-    print('Save!');
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Campos Preenchidos'),
+        content: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text('Email: $textEmail'),
+            Text('Preço: $textPrice'),
+            Text('Peso: $textWeight'),
+            Text('Data: $textDate'),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('OK'),
+          ),
+        ],
+      ),
+    );
   }
 
   void onChanged(String text) {
