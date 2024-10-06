@@ -19,6 +19,15 @@ class _TodoListPageState extends State<TodoListPage> {
   int? deletedTaskPos;
 
   @override
+  void initState() {
+    super.initState();
+
+    taskRepository
+        .loadTaskList()
+        .then((value) => setState(() => tasks = value));
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
