@@ -41,7 +41,7 @@ class TodoListItem extends StatelessWidget {
   Widget _content(context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.grey[200],
+        color: const Color.fromARGB(100, 103, 80, 164),
         borderRadius: const BorderRadius.all(Radius.circular(8)),
       ),
       padding: const EdgeInsets.all(16),
