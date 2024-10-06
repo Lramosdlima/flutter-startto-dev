@@ -18,6 +18,8 @@ class _TodoListPageState extends State<TodoListPage> {
   Task? deletedTask;
   int? deletedTaskPos;
 
+  String? errorText;
+
   @override
   void initState() {
     super.initState();
@@ -50,11 +52,12 @@ class _TodoListPageState extends State<TodoListPage> {
                     child: TextField(
                       controller: _addTaskController,
                       onSubmitted: _addTask,
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
+                      decoration: InputDecoration(
+                        border: const OutlineInputBorder(),
+                        errorText: errorText,
                         labelText: "Adicione uma tarefa",
                         hintText: "Exemplo: Estudar Flutter",
-                        hintStyle: TextStyle(color: Colors.grey),
+                        hintStyle: const TextStyle(color: Colors.grey),
                       ),
                     ),
                   ),
@@ -172,10 +175,15 @@ class _TodoListPageState extends State<TodoListPage> {
       String title = value;
       Task task = Task(title: title, date: DateTime.now());
 
-      setState(() => tasks.add(task));
+      setState(() {
+        tasks.add(task);
+        errorText = null;
+      });
       _addTaskController.clear();
 
       taskRepository.saveTaskList(tasks);
+    } else {
+      setState(() => errorText = 'O título não pode ser vazio!');
     }
   }
 }
