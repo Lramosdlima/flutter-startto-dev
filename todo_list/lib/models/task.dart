@@ -3,4 +3,11 @@ class Task {
   DateTime date;
 
   Task({required this.title, required this.date});
+
+  Map<String, dynamic> toJson() {
+    return {
+      'title': title,
+      'date': date.toIso8601String(),
+    };
+  }
 }
