@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_list/models/date_field.dart';
 import 'package:todo_list/models/task.dart';
 import 'package:todo_list/repositories/todo_repository.dart';
 import 'package:todo_list/widgets/todo_list_item.dart';
@@ -19,6 +20,8 @@ class _TodoListPageState extends State<TodoListPage> {
   int? deletedTaskPos;
 
   String? errorText;
+
+  DateTime date = DateTime.now();
 
   @override
   void initState() {
@@ -51,7 +54,7 @@ class _TodoListPageState extends State<TodoListPage> {
                   Expanded(
                     child: TextField(
                       controller: _addTaskController,
-                      onSubmitted: _addTask,
+                      // onSubmitted: _addTask,
                       decoration: InputDecoration(
                         border: const OutlineInputBorder(),
                         errorText: errorText,
@@ -77,6 +80,12 @@ class _TodoListPageState extends State<TodoListPage> {
                   )
                 ],
               ),
+              const SizedBox(height: 16),
+              DateField(
+                  date: date,
+                  onPicked: (picked) {
+                    setState(() => date = picked);
+                  }),
               const SizedBox(height: 16),
               Flexible(
                 // ocupa o máximo de altura disponível e permite o scroll
@@ -174,7 +183,8 @@ class _TodoListPageState extends State<TodoListPage> {
   void _addTask(value) {
     if (value.isNotEmpty) {
       String title = value;
-      Task task = Task(title: title, date: DateTime.now());
+      DateTime date = this.date;
+      Task task = Task(title: title, date: date);
 
       setState(() {
         tasks.add(task);
