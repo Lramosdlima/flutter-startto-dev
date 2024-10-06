@@ -45,7 +45,7 @@ class TodoListItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(DateFormat('dd/MM/yyyy - HH:mm').format(task.date),
+          Text(DateFormat('dd/MM/yyyy').format(task.date),
               style: Theme.of(context).textTheme.bodySmall),
           const SizedBox(height: 8),
           Text(task.title, style: Theme.of(context).textTheme.titleMedium),
