@@ -22,11 +22,10 @@ class _CalculateIMCPageState extends State<CalculateIMCPage> {
   void _resetFields() {
     weightController.text = '';
     heightController.text = '';
-    _formKey.currentState!.reset();
+
     setState(() {
       _infoText = 'Informe seus dados';
       infoTextColor = Theme.of(context).primaryColor;
-      _formKey = GlobalKey<FormState>();
     });
   }
 
