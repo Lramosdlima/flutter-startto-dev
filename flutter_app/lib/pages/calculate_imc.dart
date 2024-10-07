@@ -113,11 +113,6 @@ class _CalculateIMCPageState extends State<CalculateIMCPage> {
                               300.0) {
                             return 'Peso inválido! Deve ser menor que 300kg';
                           }
-
-                          if (double.parse(value.replaceAll(',', '.')) >=
-                              300.0) {
-                            return 'Peso inválido';
-                          }
                         },
                         keyboardType: TextInputType.number,
                         inputFormatters: [
