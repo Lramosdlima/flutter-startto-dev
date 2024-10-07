@@ -106,7 +106,12 @@ class _CalculateIMCPageState extends State<CalculateIMCPage> {
 
                           if (double.parse(value.replaceAll(',', '.')) <=
                               30.0) {
-                            return 'Peso inválido';
+                            return 'Peso inválido! Deve ser maior que 30kg';
+                          }
+
+                          if (double.parse(value.replaceAll(',', '.')) >=
+                              300.0) {
+                            return 'Peso inválido! Deve ser menor que 300kg';
                           }
                         },
                         keyboardType: TextInputType.number,
@@ -134,11 +139,11 @@ class _CalculateIMCPageState extends State<CalculateIMCPage> {
                           }
 
                           if (double.parse(value.replaceAll(',', '.')) >= 2.5) {
-                            return 'Altura muito alta';
+                            return 'Altura inválida! Deve ser menor que 2.5m';
                           }
 
                           if (double.parse(value.replaceAll(',', '.')) <= 1.0) {
-                            return 'Altura muito baixa';
+                            return 'Altura inválida! Deve ser maior que 1m';
                           }
                         },
                         keyboardType: TextInputType.number,
