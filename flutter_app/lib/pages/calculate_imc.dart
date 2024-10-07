@@ -108,6 +108,11 @@ class _CalculateIMCPageState extends State<CalculateIMCPage> {
                               30.0) {
                             return 'Peso inválido';
                           }
+
+                          if (double.parse(value.replaceAll(',', '.')) >=
+                              300.0) {
+                            return 'Peso inválido';
+                          }
                         },
                         keyboardType: TextInputType.number,
                         inputFormatters: [
